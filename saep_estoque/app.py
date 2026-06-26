@@ -109,21 +109,25 @@ def excluir():
 
     messagebox.showinfo("Sucesso", "Produto excluído com sucesso")
 
-#Botão Excluir
-botao_excluir = tk.Button(janela, text="Excluir Produto", command=excluir, width = 25)
-botao_excluir.pack(pady=10)
-
+#Limpar Campos (está caindo em loop infinito, não sei o pq)
 def limpar_campos():
+    #limpando os campos
     entrada_nome.delete(0, tk.END)
     entrada_categoria.delete(0, tk.END)
     entrada_quantidade.delete(0, tk.END)
     entrada_preco.delete(0, tk.END)
 
+    #atualizando a tabela
+
     messagebox.showinfo("Sucesso", "Campos limpos com sucesso!")
-    limpar_campos()
     atualizar_tabela()
+
+#Botão Excluir
+botao_excluir = tk.Button(janela, text="Excluir Produto", command=excluir, width = 25)
+botao_excluir.pack(pady=10)
 
 botao_limpar = tk.Button(janela, text="Limpar Campos", command=limpar_campos, width = 25)
 botao_limpar.pack(pady=10)
+
 janela.mainloop()
 
