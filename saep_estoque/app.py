@@ -57,6 +57,8 @@ tk.Label(janela, text="Preço: ").pack()
 entrada_preco = tk.Entry(janela, width=40)
 entrada_preco.pack()
 
+
+
 #Atualizar tabela
 def atualizar_tabela():
     for item in tabela.get_children():
@@ -111,5 +113,17 @@ def excluir():
 botao_excluir = tk.Button(janela, text="Excluir Produto", command=excluir, width = 25)
 botao_excluir.pack(pady=10)
 
+def limpar_campos():
+    entrada_nome.delete(0, tk.END)
+    entrada_categoria.delete(0, tk.END)
+    entrada_quantidade.delete(0, tk.END)
+    entrada_preco.delete(0, tk.END)
 
+    messagebox.showinfo("Sucesso", "Campos limpos com sucesso!")
+    limpar_campos()
+    atualizar_tabela()
+
+botao_limpar = tk.Button(janela, text="Limpar Campos", command=limpar_campos, width = 25)
+botao_limpar.pack(pady=10)
 janela.mainloop()
+
